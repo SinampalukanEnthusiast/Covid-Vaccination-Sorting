@@ -1,0 +1,31 @@
+{% extends "index.html" %} {% block content %} {% load humanize %}
+
+<div class="container text-center pt-5">
+  <div class="display-4">
+    {{district_with_max}}: {{district_with_max.vaccinated|intcomma}}
+  </div>
+  <hr />
+  <div class="display-4">
+    {{district_with_min}}: {{district_with_min.vaccinated|intcomma}}
+  </div>
+  <hr />
+  <hr />
+  <div class="container-fluid d-flex justify-content-center pt-4">
+    <form action="" method="GET">
+      <button class="btn btn-block btn-primary" name="all">
+        Show all data
+      </button>
+    </form>
+  </div>
+  <div class="container text-center">
+    {% for i in districts %}
+    <!-- thissiajdis -->
+    {% with i.vaccinated as '{:,}'.format(i.vaccinated) %} {% endwith %}
+    <h1 class="display-4">{{i.name}}: {{i.vaccinated|intcomma}}</h1>
+    <br />
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
