@@ -20,7 +20,6 @@
   <div class="container text-center">
     {% for i in districts %}
     <!-- thissiajdis -->
-    {% with i.vaccinated as '{:,}'.format(i.vaccinated) %} {% endwith %}
     <h1 class="display-4">{{i.name}}: {{i.vaccinated|intcomma}}</h1>
     <br />
 
